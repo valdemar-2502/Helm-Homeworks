@@ -87,12 +87,13 @@ helm template test myapp --set frontend.image.tag=1.27-alpine | grep image:
 
 Структура чарта, `helm lint` и начало отрисованных манифестов:
 
-![структура, lint, template](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/02.png))
+![структура, lint, template](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/02.png)
+
 ![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/08.png)
 
 Смена переменной `frontend.image.tag` меняет образ в отрисованных манифестах (изменение версии через переменные):
 
-![helm template --set](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/02.png))
+![helm template --set](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/02.png)
 
 ------
 ### Задание 2. Запустить две версии в разных неймспейсах
@@ -120,7 +121,7 @@ helm install app-v3 ./myapp -n app2 --create-namespace --set frontend.image.tag=
 
 Установка трёх релизов:
 
-![helm install](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/04.png))
+![helm install](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/04.png)
 
 ### Результат
 
@@ -133,7 +134,7 @@ kubectl get pods -n app2
 В `app1` работают поды двух релизов (`app-v1-*` и `app-v2-*`), в `app2` работают поды `app-v3-*`.
 В списке релизов также видны `traefik` и `kubernetes-dashboard`: это аддоны MicroK8s, установленные ранее.
 
-![helm list и поды](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/05.png))
+![helm list и поды](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/05.png)
 
 Образы и сервисы. В колонке `IMAGES` видны разные версии frontend:
 
@@ -144,7 +145,7 @@ kubectl get svc -n app1
 kubectl get svc -n app2
 ```
 
-![deployments и services](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/06.png))
+![deployments и services](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/06.png)
 
 Проверка работы приложения и применённых значений. Запрос из временного пода в `app1` к Service `app-v1-frontend`
 возвращает `HTTP/1.1 200 OK` с заголовком `Server: nginx/1.26.3`, что соответствует тегу `1.26-alpine`:
@@ -154,7 +155,7 @@ kubectl run curl-test -n app1 --image=wbitt/network-multitool:minimal --image-pu
 helm get values app-v1 -n app1
 ```
 
-![curl и helm get values](![kubernetes](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/07.png))
+![curl и helm get values](https://github.com/valdemar-2502/Helm-Homeworks/blob/main/screenshots/07.png)
 ### Правила приёма работы
 
 1. Домашняя работа оформляется в своём Git репозитории в файле README.md. Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.

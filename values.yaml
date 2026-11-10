@@ -1,0 +1,18 @@
+frontend:
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: alpine
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+
+backend:
+  replicaCount: 1
+  image:
+    repository: wbitt/network-multitool
+    tag: minimal
+    pullPolicy: IfNotPresent
+  port: 8080
+  service:
+    port: 8080
